@@ -7,15 +7,15 @@ module.exports = function () {
     var downCounter = 0;
     var upCounter = 2;
     var awayCounter = 0;
-    var $downList = $slider.find('.slider__preview-list-down');
-    var $upList = $slider.find('.slider__preview-list-up');
-    var $controlDown = $slider.find('.slider__control_down');
-    var $controlUp = $slider.find('.slider__control_up');
-    var $viewBig = $slider.find('.slider__view-big');
-    var $title = $slider.find('.slider__main-subtitle');
-    var $tech = $slider.find('.slider__tech');
-    var $sliderPic = $slider.find('.slider__view-pic');
-    var $sliderLink = $slider.find('.slider__link');
+    var $downList = $('.slider__preview-list-down',$slider);
+    var $upList = $('.slider__preview-list-up',$slider);
+    var $controlDown = $('.slider__control_down',$slider);
+    var $controlUp = $('.slider__control_up',$slider);
+    var $viewBig = $('.slider__view-big',$slider);
+    var $title = $('.slider__main-subtitle',$slider);
+    var $tech = $('.slider__tech',$slider);
+    var $sliderPic = $('.slider__view-pic',$slider);
+    var $sliderLink = $('.slider__link',$slider);
 
     //down items
     var $downItems = $downList.find('.slider__preview-item');

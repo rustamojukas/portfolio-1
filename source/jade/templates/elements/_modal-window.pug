@@ -1,21 +1,9 @@
--
-    var modalWindowLinks = [
-    {name:'Мои работы',
-    href:'works.html'},
-    {name:'Блог',
-    href:'blog.html'},
-    {name:'Обо мне',
-    href:'about-me.html'},
-    {name:'Авторизация',
-    href:'index.html'}
-
-    ]
 
 .modal.animated
     .modal__window
         ul.modal__list
-            each link in modalWindowLinks
+            each link in navLinks
                 li.modal__list-item
-                    a.main-title.main-title_white.modal__link(href=link.href)= link.name
+                    a.main-title.main-title_white.modal__link(href=link.href)= link.title
 
 

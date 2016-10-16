@@ -43,7 +43,7 @@ section.whatabout
         .container
             .window.feedback-window
                 h3.main-subtitle.feedback-window__main-subtitle Связаться со мной
-                form.form.feedback-form(name='feddback-form' id='feedback-form' action='/' method='POST')
+                form.form.feedback-form(name='feddback-form' id='feedback-form' action='/feedback' method='POST')
                     .form__input-elems.feedback-form__elems
                         .form__cont-input.feedback-form__cont-input
                             input(type='text' id='feedback-name'  class='form__input-text feedback-form__input-text' name='name' placeholder='Имя' data-content='Вы не ввели имя')
@@ -58,3 +58,4 @@ section.whatabout
                 a.anchor__link(href='#header') Наверх
                     svg.anchor__link-icon
                         use(xlink:href='img/svg-sprites/sprite.svg#arrow_down')
+            include ../../elements/_popup-message

@@ -10,7 +10,7 @@ module.exports = function () {
             message: error.message
           };
         }))
-        .pipe($.gulp.dest($.config.root))
-        .pipe($.browserSync.stream());
+        .pipe($.gulp.dest($.config.root));
+        // .pipe($.browserSync.stream());
   });
 };

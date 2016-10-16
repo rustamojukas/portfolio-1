@@ -1,0 +1,20 @@
+{
+  "Express": {
+    "port": 3000
+  },
+  "Mongoose":{
+    "url":"mongodb://localhost/portfolio",
+    "options":{}
+  },
+  "Session":{
+    "secret":"RefactoRing",
+    "key":"sid",
+    "resave": true,
+    "saveUninitialized": true,
+    "cookie":{
+      "path":"/",
+      "httpOnly":true,
+      "maxAge":null
+    }
+  }
+}

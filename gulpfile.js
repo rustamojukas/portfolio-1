@@ -11,7 +11,7 @@ global.$ = {
   },
   gulp: require('gulp'),
   rimraf: require('rimraf'),
-  browserSync: require('browser-sync').create(),
+  browserSync: require('browser-sync'),
   buffer: require('vinyl-buffer'),
   merge: require('merge-stream'),
   browserify:require('browserify'),
@@ -28,7 +28,7 @@ $.gulp.task('default', $.gulp.series(
     'sprite:svg',
     $.gulp.parallel(
         'sass',
-        'pug',
+        // 'pug',
         'js:foundation',
         'browserify',
         'copy:image',

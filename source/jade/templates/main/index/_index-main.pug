@@ -2,7 +2,10 @@
     canvas.Background-canvas
 main.main
     .container
-        a(href='#' class='btn btn_link auth__link') Авторизоваться
+        if(!auth)
+            a(href='/login' id='login-link' class='btn btn_link auth__link') Авторизоваться
+        else
+            a(href='/logout' id='logout-link' class='btn btn_link auth__link') Выйти
         .flipper
             .window.window_wellcome
                 .window__author
@@ -24,18 +27,18 @@ main.main
 
             .window.window_login
                 h2.main-subtitle.main-subtitle_white.window__main-subtitle Авторизуйтесь
-                form.form.window__form(id='login-form' name='login-form' action='/' method='POST')
+                form.form.window__form(id='login-form' name='login-form' action='/login' method='POST')
                     .form__input-elems
                         .form__cont-input.window__cont-input
                             .form__icon
                                 svg(class='form__icon-pic' width="20" height="20")
                                     use(xlink:href="img/svg-sprites/sprite.svg#login")
-                            input(type='text' id='name' name='name' class='form__input-text form__input-text_login' placeholder='Логин' data-content='Вы не ввели имя')
+                            input(type='text' id='name' name='login' class='form__input-text form__input-text_login' placeholder='Логин' data-content='Вы не ввели имя')
                         .form__cont-input.window__cont-input
                             .form__icon
                                 svg(class='form__icon-pic' width="20" height="20")
                                     use(xlink:href="img/svg-sprites/sprite.svg#password")
-                            input(type='password' id='password' name='name' class='form__input-text form__input-text_password' placeholder='Пароль' data-content='Вы не ввели пароль')
+                            input(type='password' id='password' name='password' class='form__input-text form__input-text_password' placeholder='Пароль' data-content='Вы не ввели пароль')
                         .form__cont-captcha
                             input(type='checkbox' id='isHuman' name='isHuman' class='form__input-checkbox' data-content='Не человек? Кто же ты?')
                             label(for='isHuman' class='form__label-checkbox  form__label-checkbox_green') Я человек
@@ -47,7 +50,7 @@ main.main
                     .window_login__btn-elems
                         a(id='wellcome' class='btn btn_green btn_border-right window_login__btn' href='index.html') На главную
                         button(type='submit' class='btn btn_green btn_border-left window_login__btn' name='login-button') Войти
-
+    include ../../elements/_popup-message
 
 
 

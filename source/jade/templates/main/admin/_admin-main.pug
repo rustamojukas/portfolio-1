@@ -1,0 +1,53 @@
+-
+    var tabs = [
+    {title:'Навыки',link:'skills'},
+    {title:'Статьи',link:'articles'},
+    {title:'Работы',link:'works'},
+    {title:'Другое',link:'others'}
+    ];
+.admin-main
+    .tabs.admin-main__tabs
+        ul.tabs__list
+            each tab in tabs
+                li.tabs__list-item
+                    a.tabs__link(href='#'+tab.link)= tab.title
+        .tabs__content(id=tabs[0].link)
+            h2.tabs__title Страница "Обо мне"
+            form.admin-form(id='skill-form' method='POST',action='/skill-save')
+                each skill in skills
+                    .admin__skill
+                        .skill__title.admin__skill-title= skill.title
+                        ul.admin__skill-list
+                            each list in skill.list
+                                li.admin__skill-item
+                                    label.admin-form__label= list.name
+                                        input.admin-form__input(value=list.percent name=list.name)
+                                        span %
+                button.admin-form__button-submit(type='submit') Сохранить
+        .tabs__content(id=tabs[1].link)
+            h2.tabs__title Страница "Блог"
+            .tabs__subtitle Добавить запись
+            form.admin-form(id='article-form' method='POST',action='/article-save')
+                .admin-form__input-container
+                    input.admin-form__input(type='text' placeholder='Название')
+                .admin-form__input-container
+                    input.admin-form__input(type='text' placeholder='Дата')
+                .admin-form__input-container
+                    textarea.admin-form__textarea(placeholder='Содержание')
+                button.admin-form__button-submit(type='submit') Сохранить
+        .tabs__content(id=tabs[2].link)
+            h2.tabs__title Страница "Мои работы"
+            .tabs__subtitle Добавить работу
+            form.admin-form(id='works-form' method='POST',action='/works-save')
+                .admin-form__input-container
+                    input.admin-form__input(type='text' placeholder='Название проекта')
+                .admin-form__input-container
+                    input.admin-form__input(type='text' placeholder='Технологии')
+                .admin-form__input-container
+                    input.admin-form__input(type='file')
+                button.admin-form__button-submit(type='submit') Сохранить
+        .tabs__content(id=tabs[3].link)
+            h2.tabs__title Другое
+
+    include ../../elements/_popup-message
+    //.main-title= name

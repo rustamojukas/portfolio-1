@@ -10,6 +10,8 @@ $(function () {
   require('./modules/auth-button')();
   //btn-menu
   require('./modules/btn-menu')();
+  //popup-close
+  require('./modules/popup-close')();
   //anchor scroll
   require('./modules/anchor-scroll')();
   //slider
@@ -20,6 +22,8 @@ $(function () {
   require('./modules/blog-sidebar-hide')();
   //form-validation
   require('./modules/form-submit')();
+  //admin-tabs
+  require('./modules/admin-tabs')();
 });
 
 

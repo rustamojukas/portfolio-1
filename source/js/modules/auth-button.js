@@ -1,6 +1,6 @@
 module.exports=function(){
   //auth-button(flip)
-  $('.auth__link,#wellcome').on('click', function (e) {
+  $('#login-link,#wellcome').on('click', function (e) {
     var $this = $(this);
     $('.flipper').toggleClass('flipper_flip');
     e.preventDefault();
@@ -9,5 +9,9 @@ module.exports=function(){
     } else {
       $('.auth__link').show();
     }
+  });
+  $('#logout-link').on('click',function(e){
+    e.preventDefault();
+    $('<form method="POST" action="/logout">').submit();
   });
 };
