@@ -1,5 +1,6 @@
 var User = require('./models/users');
 var Skill = require('./models/skills');
+var Work = require('./models/works');
 // var user = new User({
 //   login:'*',
 //   password:'*'
@@ -12,23 +13,25 @@ var Skill = require('./models/skills');
 //   console.log(user);
 // });
 
-// var frontend = new Skill({
-//   title:'WorkFlow',
-//   list:[{name:'Git',percent:95},{name:'Gulp',percent:80},{name:'Bower',percent:90}]
-// });
-// frontend.save(function (err,skill) {
-//   if(err){
-//     throw err;
-//   }
-//   console.log(skill);
-// });
-var key = 'HTML5';
-Skill.findOne({list:{$elemMatch:{name:key}}})
-    // .where({list:{$elemMatch:{name:key}}})
-    .exec(function (err, data) {
-      if (err) {
-        throw err;
-      }
-      console.log(data);
-    });
+var work = new Work({
+  title:'Очень длинное название проекта',
+  tech:'mongo, css, jquery, angular, react',
+  pic:'img/lorem5.jpg',
+  link:'#5'
+});
+work.save(function (err,data) {
+  if(err){
+    throw err;
+  }
+  console.log(data);
+});
+// var key = 'HTML5';
+// Skill.findOne({list:{$elemMatch:{name:key}}})
+//     // .where({list:{$elemMatch:{name:key}}})
+//     .exec(function (err, data) {
+//       if (err) {
+//         throw err;
+//       }
+//       console.log(data);
+//     });
 

@@ -7,6 +7,7 @@ module.exports = function(app){
   app.post('/login',require('./login').post);
   app.post('/logout',require('./logout').post);
   app.get('/admin',checkAuth,require('./admin').get);
-  app.post('/feedback',require('./feedback').post);
-  app.post('/skill-save',require('./skill-save').post);
+  app.post('/feedback',checkAuth,require('./feedback').post);
+  app.post('/skill-save',checkAuth,require('./skill-save').post);
+  app.post('/article-save',checkAuth,require('./article-save').post);
 };

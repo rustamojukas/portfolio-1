@@ -31,7 +31,6 @@ module.exports = (function () {
     $form.on('reset', _clearForm);
   };
   var _addError = function (elem) {
-    // console.log(elem.data('content'));
     var elemParent = elem.parent();
     elemParent.removeClass('valid');
     elemParent.addClass('error');
@@ -39,12 +38,15 @@ module.exports = (function () {
       _createTooltip(elem,'bottom');
       return false;
     }
+    if(elem.closest('#skill-form').length){
+      return false;
+    }
     _createTooltip(elem);
   };
   var _removeError = function () {
     var $this=$(this);
     $this.removeClass('error');
-    $this.parent().find('.tooltip').remove();
+    $this.closest('form').find('.tooltip').remove();
 
   };
   var _onInput = function () {

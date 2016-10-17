@@ -29,12 +29,12 @@ section.works
                     svg.slider__control-icon.slider__control-icon_up(width='30' height='30')
                         use(xlink:href='img/svg-sprites/sprite.svg#portf_arrow_up')
                 ul.slider__preview-list.slider__preview-list-down
-                    each item,i in sliderItems
-                        li(class='slider__preview-item '+(i==sliderItems.length-1?'active':'')   data-title=item['data-title'] data-tech=item['data-tech'] data-link=item['data-link'] data-pic=item['src'])
-                            img(src=item.src class='slider__preview-pic' alt='preview-pic')
+                    each item,i in works
+                        li(class='slider__preview-item '+(i==works.length-1?'active':'') data-title=item.title data-tech=item.tech data-link=item.link data-pic=item.pic)
+                            img(src=item.pic class='slider__preview-pic' alt='preview-pic')
                 ul.slider__preview-list.slider__preview-list-up
-                    each item,i in sliderItems
+                    each item,i in works
                         li(class='slider__preview-item '+(i==1?'active':''))
-                            img(src=item.src class='slider__preview-pic' alt='preview-pic')
+                            img(src=item.pic class='slider__preview-pic' alt='preview-pic')
     include ../../elements/_modal-window
 

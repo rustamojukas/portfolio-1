@@ -1,104 +1,160 @@
+.wrapper-admin
+    min-height: 100%
+    overflow: hidden
+
 .admin-main
-  position: relative
-  min-height: 100vh
-  //background-color: rgba(green,0.3)
-  background-image: url('../img/bg-forest-photo.jpg')
-  background-repeat: no-repeat
-  background-size: cover
-  &::before
-    content: ''
-    position: absolute
-    top: 0
-    left: 0
-    bottom: 0
-    right: 0
-    background-color: rgba(#fff, 0.8)
-  &__tabs
     position: relative
+    min-height: 100vh
+    //background-color: rgba(green,0.3)
+    background-image: url('../img/bg-forest-photo.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(#fff, 0.8)
+    &__tabs
+        position: relative
+
 .tabs
-  &__title
-    margin: 0
-    padding: 20px
-    padding-left: 10px
-    color: #455a64
-    font-weight: 500
-    font-size: 1.3rem
-  &__subtitle
-    color: #455a64
-    font-weight: 500
-    margin-bottom: 17px
-  &__list
-    margin: 0
-    padding: 0
-    list-style: none
-    @extend %clearfix
-    background: #f0efe9
-  &__list-item
-    float: left
-    background: #f0efe9
-    border-right: 2px solid #fff
-    &:hover
-      background: #fff
-    &.active
-      background: #fff
-      .tabs__link
-        color: #00bfa5
+    background-color: #f0efe9
+    &__title
+        margin: 0
+        padding: 20px
+        padding-left: 10px
+        color: #455a64
+        font-weight: 500
+        font-size: 1.3rem
+    &__subtitle
+        color: #455a64
+        font-weight: 500
+        padding: 15px 0
+        font-size: 1rem
+    &__list
+        margin: 0
+        padding: 0
+        list-style: none
+        @extend %clearfix
+        background: #f0efe9
+    &__list-item
+        text-align: center
+        float: left
+        background: #f0efe9
+        border-right: 2px solid #fff
+        +breakpoint(750px)
+            float: none
+            border: none
+            border-bottom: 2px solid #fff
+            &:last-child
+                border-bottom: none
+        &:first-child
+            border-left: 2px solid #fff
+        &:hover
+            background: #fff
+        &.active
+            background: #fff
+            .tabs__link
+                color: #00bfa5
 
-  &__link
-    display: inline-block
-    padding: 25px 35px
-    text-align: center
-    text-decoration: none
-    transition: 0.1s
-    text-transform: uppercase
-    color: #455a64
-    opacity: 0.8
-    font-weight: bold
-  &__content
-    display: none
-    padding: 5px 20px
-    @extend %clearfix
-    &.active
-      display: block
+
+    &__link
+        display: inline-block
+        padding: 25px 35px
+        text-align: center
+        text-decoration: none
+        transition: 0.1s
+        text-transform: uppercase
+        color: #455a64
+        opacity: 0.8
+        font-weight: bold
+        +breakpoint(750px)
+            width: 100%
+    &__content
+        display: none
+        padding: 5px 20px
+        position: relative
+        @extend %clearfix
+        &.active
+            display: block
+
 .admin
-  &__skill-title
     color: #455a64
+    &__skill-title
+        text-align: left
 
-  &__skill
-    float: left
-    //vertical-align: top
-    padding: 10px
-  &__skill-list
-    list-style: none
-    margin: 0
-    padding: 0
-  &__skill-item
-    margin-bottom: 20px
-    padding: 5px
+    &__skill
+        float: left
+        padding: 10px
+    &__skill-list
+        list-style: none
+        margin: 0
+        padding: 0
+    &__skill-item
+        height: 32px
+        min-width: 250px
+        border-radius: 5px
+        margin-bottom: 2px
+        padding: 2px
+
+        &.error
+            background-color: rgba(red, 0.5)
+
+    &__skill-label
+        float: left
+        line-height: 30px
+    &__skill-input
+        width: 50px
+        float: right
+        height: 28px
+        border: none
+        border-radius: 3px
+        text-align: center
+    &__skill-percent
+        float: right
+        line-height: 30px
+        margin: 0 5px
 
 .admin-form
-  @extend %clearfix
-  &__label
-    position: relative
-  &__input-container
-    width: 300px
-    height: 45px
-  &__input
-    width: 100%
-    height: 100%
-    
-  &__button-submit
-    clear: both
-    display: block
-    //width: 120px
-    border-radius: 5px
-    background-color: #00bfa5
-    outline: none
-    padding: 10px 20px
-    border: none
-    cursor: pointer
-    color: rgba(#fff,0.8)
-    &:hover
-      color: rgba(#fff,1)
-      background-color: #00987e
+    @extend %clearfix
+    &__label
+        position: relative
+    &__input-container
+        max-width: 300px
+        height: 45px
+        position: relative
+        margin-bottom: 20px
+    &__textarea-container
+        max-width: 500px
+        margin-bottom: 30px
+    &__input
+        width: 100%
+        height: 100%
+        padding: 0 20px
+        border: none
+        border-radius: 5px
+    &__textarea
+        width: 100%
+        resize: none
+        min-height: 300px
+        border-radius: 5px
+        border: none
+        padding: 20px
+
+    &__button-submit
+        clear: both
+        display: block
+        border-radius: 5px
+        background-color: #00bfa5
+        outline: none
+        padding: 10px 20px
+        border: none
+        cursor: pointer
+        color: rgba(#fff, 0.8)
+        &:hover
+            color: rgba(#fff, 1)
+            background-color: #00987e
 

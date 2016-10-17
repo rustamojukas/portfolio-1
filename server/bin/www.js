@@ -7,13 +7,13 @@
 var app = require('../../server');
 var debug = require('debug')('portfolio-backend:server');
 var http = require('http');
-var config=require('config');
+// var config=require('config');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || config.get('Express.port') || '3000');
+var port = normalizePort(process.env.PORT  || '3000');
 app.set('port', port);
 
 /**

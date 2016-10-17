@@ -8,24 +8,14 @@ module.exports = function () {
   }
 
   function addListeners() {
-    $form.on('submit', submitForm);
+    $form.on('submit', function(e){
+      e.preventDefault();
+      var $this = $(this);
+      var url=$this.attr('action');
+      ajaxRequest($this, url);
+    });
   }
 
-  function submitForm(e) {
-    e.preventDefault();
-    var url=$form.attr('action');
-
-    // if ($form.attr('id') === 'login-form') {
-    //   url = '/login';
-    // } else if ($form.attr('id') === 'feedback-form') {
-    //   url = '/feedback';
-    // } else {
-    //   return false;
-    // }
-    ajaxRequest($form, url);
-
-
-  }
 
   function ajaxRequest(form, url) {
     if (!formValidation.validateForm(form)) {
