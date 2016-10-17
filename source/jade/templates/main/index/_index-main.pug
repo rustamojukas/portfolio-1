@@ -2,7 +2,7 @@
     canvas.Background-canvas
 main.main
     .container
-        if(!auth)
+        if(!user)
             a(href='/login' id='login-link' class='btn btn_link auth__link') Авторизоваться
         else
             a(href='/logout' id='logout-link' class='btn btn_link auth__link') Выйти

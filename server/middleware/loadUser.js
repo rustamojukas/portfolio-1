@@ -8,7 +8,7 @@ module.exports= function(req,res,next){
     if(err){
       return next(err);
     }
-    req.user=user.login;
+    req.user=res.locals.user=user;
     next();
   });
 };

@@ -5,10 +5,9 @@ module.exports = {
       if (err) {
         return next(err);
       }
-      res.render('admin', {
-        name:req.user,
-        skills:skills
-      });
+      console.log(skills);
+      res.render('admin',{skills:skills});
+
     });
 
   }

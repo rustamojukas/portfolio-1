@@ -1,21 +1,16 @@
 var Skill = require('../models/skills');
-var util=require('util');
+var async = require('async');
 module.exports = {
-  post: function (req, res) {
-    var reqData = req.body;
-    for(var key in reqData){
-      if(Object.prototype.hasOwnProperty.call(reqData, key)){
-        Skill.findOne({},{list:{$elemMatch:{name:key}}},findSkill);
+  post: function (req, res, next) {
+    var skillData = req.body;
+    async.each(Object.keys(skillData),function(skill,callback){
+      var percent = skillData[skill];
+      Skill.update({title:skill},{percent:percent},callback);
+    },function(err){
+      if(err){
+        return res.send('Произошла ошибка');
       }
-    }
-    res.status(200).send('Данные сохранены');
+      res.status(200).send('Данные сохранены');
+    });
   }
 };
-
-function findSkill(err,data){
-  if(err){
-    console.log(err);
-    throw err;
-  }
-  console.log(util.inspect(data));
-}

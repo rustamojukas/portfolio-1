@@ -5,26 +5,28 @@
     {title:'Работы',link:'works'},
     {title:'Другое',link:'others'}
     ];
+
 .admin-main
     .tabs.admin-main__tabs
         .container
             ul.tabs__list
                 each tab in tabs
                     li.tabs__list-item
-                        a.tabs__link(href='#'+tab.link)= tab.title
+                        a.tabs__link(href='#' + tab.link)= tab.title
     .tabs__content(id=tabs[0].link)
         .container
             h2.tabs__title Страница "Обо мне"
             form.admin-form(id='skill-form' method='POST',action='/skill-save')
-                each skill in skills
+                each category in ['Frontend','Backend','WorkFlow']
                     .admin__skill
-                        .skill__title.tabs__subtitle= skill.title
+                        .skill__title.tabs__subtitle= category
                         ul.admin__skill-list
-                            each list in skill.list
-                                li.admin__skill-item
-                                    span.admin__skill-label= list.name
-                                    span.admin__skill-percent %
-                                    input.admin__skill-input(value=list.percent name=list.name)
+                            each skill in skills
+                                if skill.category.toLowerCase()==category.toLowerCase()
+                                    li.admin__skill-item
+                                        span.admin__skill-label= skill.title
+                                        span.admin__skill-percent %
+                                        input.admin__skill-input(value=skill.percent name=skill.title)
                 button.admin-form__button-submit(type='submit') Сохранить
     .tabs__content(id=tabs[1].link)
         .container

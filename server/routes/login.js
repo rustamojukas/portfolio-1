@@ -2,7 +2,7 @@ var async = require('async');
 var User = require('./../models/users');
 module.exports = {
   get: function (req, res) {
-    res.render('index',{auth:req.user});
+    res.render('index');
   },
   post: function (req, res, next) {
     var login = req.body.login;

@@ -8,10 +8,10 @@ module.exports = function () {
   }
 
   function addListeners() {
-    $form.on('submit', function(e){
+    $form.on('submit', function (e) {
       e.preventDefault();
       var $this = $(this);
-      var url=$this.attr('action');
+      var url = $this.attr('action');
       ajaxRequest($this, url);
     });
   }
@@ -55,7 +55,10 @@ module.exports = function () {
       default:
         jqXHR.done(function (data, textStatus, jqXHR) {
           fillPopup().html(data);
-          $form.trigger('reset');
+          if (url !== '/skill-save') {
+            $form.trigger('reset');
+
+          }
         });
         jqXHR.fail(function (jqXHR) {
           fillPopup().html('<div class="form__error>Ошибка</div>' + jqXHR.status + ' ' + jqXHR.responseText);

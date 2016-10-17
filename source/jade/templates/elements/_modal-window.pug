@@ -5,5 +5,8 @@
             each link in navLinks
                 li.modal__list-item
                     a.main-title.main-title_white.modal__link(href=link.href)= link.title
+            if(user)
+                li.modal__list-item
+                    a.main-title.main-title_white.modal__link(href='/admin') Админка
 
 

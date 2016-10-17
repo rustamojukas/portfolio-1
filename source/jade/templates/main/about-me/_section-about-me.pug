@@ -29,17 +29,18 @@ section.about-me
             h3.main-subtitle.about-me__main-subtitle-right Чем я могу быть вам полезен
             p.about-me__text.about-me__text-right= skillText
             .about-me__skill
-                each skill in skills
+                each category in ['Frontend','Backend','WorkFlow']
                     .skill
-                        .skill__title= skill.title
+                        .skill__title= category
                         ul.skill__list
-                            each list in skill.list
-                                li.skill__list-item(data-percent=list.percent)
-                                    svg(class='skill__svg' viewBox='0 0 100 100')
-                                        circle(cx='50' cy='50' r='50' fill='#dfdcd5')
-                                        circle(cx='50' cy='50' r='34' fill='#f4f5f0')
-                                        circle(class='skill__path' fill='transparent' stroke='#6c9c5a' stroke-width='16' cx='50' cy='50' r='42')
-                                    .skill__name= list.name
+                            each skill in skills
+                                if skill.category.toLowerCase()==category.toLowerCase()
+                                    li.skill__list-item(data-percent=skill.percent)
+                                        svg(class='skill__svg' viewBox='0 0 100 100')
+                                            circle(cx='50' cy='50' r='50' fill='#dfdcd5')
+                                            circle(cx='50' cy='50' r='34' fill='#f4f5f0')
+                                            circle(class='skill__path' fill='transparent' stroke='#6c9c5a' stroke-width='16' cx='50' cy='50' r='42')
+                                        .skill__name=skill.title
     include ../../elements/_modal-window
 
 
