@@ -1,4 +1,5 @@
 module.exports = (function () {
+  var createToolTip = require('./createTooltip');
   var init = function () {
     _setUpListeners();
   };
@@ -35,13 +36,21 @@ module.exports = (function () {
     elemParent.removeClass('valid');
     elemParent.addClass('error');
     if(elem.attr('id')==='yes'){
-      _createTooltip(elem,'bottom');
+      createToolTip({
+        elem:elem,
+        position:'bottom',
+        insertInto:'parent'
+      });
       return false;
     }
     if(elem.closest('#skill-form').length){
       return false;
     }
-    _createTooltip(elem);
+    createToolTip({
+      elem:elem,
+      position:'top',
+      insertInto:'parent'
+    });
   };
   var _removeError = function () {
     var $this=$(this);
@@ -63,22 +72,8 @@ module.exports = (function () {
     $form.find('.error').removeClass('error');
     $form.find('.tooltip').remove();
   };
-  var _createTooltip=function(elem,position){
-    var content = elem.data('content');
-    if(!content){
-      content='Не заполнено поле';
-    }
-    var toolTip = $('<div />').text(content);
-    if(position==='bottom'){
-      toolTip.addClass('tooltip arrow-top');
-    }else{
-      toolTip.addClass('tooltip arrow-bottom');
-    }
-    toolTip.insertAfter(elem);
-  };
-
+  init();
   return {
-    init: init,
     validateForm: validateForm
   };
 })();

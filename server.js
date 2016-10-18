@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-var config = require('config');
+var config = require('./server/libs/config');
 var app = express();
 
 app.disable('x-powered-by');
@@ -22,11 +22,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use(session({
-  secret:config.get('Session.secret'),
-  key:config.get('Session.key'),
-  resave: config.get('Session.resave'),
-  saveUninitialized: config.get('Session.saveUninitialized'),
-  cookie:config.get('Session.cookie'),
+  secret:config.get('session:secret'),
+  key:config.get('session:key'),
+  resave: config.get('session:resave'),
+  saveUninitialized: config.get('session:saveUninitialized'),
+  cookie:config.get('session:cookie'),
   store: new MongoStore({mongooseConnection: require('./server/libs/mongoose').connection})
 }));
 app.use(require('./server/middleware/loadUser'));
@@ -48,9 +48,9 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    if(err.status===404){
-      return res.redirect('/');
-    }
+    // if(err.status===404){
+    //   return res.redirect('/');
+    // }
     res.render('error', {
       message: err.message,
       error: err
@@ -62,9 +62,9 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
-  if(err.status===404){
-    return res.redirect('/');
-  }
+  // if(err.status===404){
+  //   return res.redirect('/');
+  // }
   res.render('error', {
     message: err.message,
     error: {}

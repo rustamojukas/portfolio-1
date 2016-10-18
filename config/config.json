@@ -1,12 +1,12 @@
 {
-  "Express": {
-    "port": 3000
+  "express":{
+    "port":3000
   },
-  "Mongoose":{
+  "mongoose":{
     "url":"mongodb://localhost/portfolio",
     "options":{}
   },
-  "Session":{
+  "session":{
     "secret":"RefactoRing",
     "key":"sid",
     "resave": true,

@@ -1,6 +1,5 @@
 //googlemaps
 require('./modules/maps')();
-
 $(function () {
   //preloader
   require('./modules/preloader')();
@@ -21,7 +20,9 @@ $(function () {
   //blog-sidebar-hide
   require('./modules/blog-sidebar-hide')();
   //form-validation
-  require('./modules/form-submit')();
+  // require('./modules/form-submit')();
+  //Login Validation
+  require('./modules/formLoginSubmit')();
   //admin-tabs
   require('./modules/admin-tabs')();
 });

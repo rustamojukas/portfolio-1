@@ -14,9 +14,12 @@
                     li.tabs__list-item
                         a.tabs__link(href='#' + tab.link)= tab.title
     .tabs__content(id=tabs[0].link)
+        //h2= user
+        //each item in skills
+            h4=item
         .container
             h2.tabs__title Страница "Обо мне"
-            form.admin-form(id='skill-form' method='POST',action='/skill-save')
+            form.admin-form(id='skill-form' method='POST',action='/skill/update')
                 each category in ['Frontend','Backend','WorkFlow']
                     .admin__skill
                         .skill__title.tabs__subtitle= category
@@ -26,13 +29,13 @@
                                     li.admin__skill-item
                                         span.admin__skill-label= skill.title
                                         span.admin__skill-percent %
-                                        input.admin__skill-input(value=skill.percent name=skill.title)
+                                        input.admin__skill-input(value=skill.percent name=skill.title type='text' data-title=skill.title)
                 button.admin-form__button-submit(type='submit') Сохранить
     .tabs__content(id=tabs[1].link)
         .container
             h2.tabs__title Страница "Блог"
             .tabs__subtitle Добавить запись
-            form.admin-form(id='article-form' method='POST',action='/article-save')
+            form.admin-form(id='article-form' method='POST',action='/article/post')
                 .admin-form__input-container
                     input.admin-form__input(type='text' name='title' placeholder='Название')
                 .admin-form__input-container
@@ -44,7 +47,7 @@
         .container
             h2.tabs__title Страница "Мои работы"
             .tabs__subtitle Добавить работу
-            form.admin-form(id='works-form' method='POST',action='/works-save')
+            form.admin-form(id='works-form' method='POST',action='/works/post')
                 .admin-form__input-container
                     input.admin-form__input(type='text' name='title' placeholder='Название проекта')
                 .admin-form__input-container
