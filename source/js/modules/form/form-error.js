@@ -6,18 +6,18 @@ module.exports = (function () {
   function _setUpListeners($form) {
     $form.on('input click', '.error', _removeError);
     $form.on('reset', _clearForm);
-    $form.on('input', 'input,textarea', _onInput)
+    $form.on('input', 'input,textarea', _onInput);
   }
 
-  function _removeError() {
+  var _removeError =function() {
     $(this).removeClass('error');
-  }
+  };
 
-  function _clearForm() {
+  var _clearForm =function() {
     $(this).find('.error').removeClass('error');
-  }
+  };
 
-  function _onInput() {
+  var _onInput=function() {
     var $this = $(this);
     if ($this.val().length > 0) {
       $this.parent().addClass('valid');
@@ -25,7 +25,7 @@ module.exports = (function () {
       $this.parent().removeClass('valid');
       $this.parent().addClass('error');
     }
-  }
+  };
 
   function create($elem, options) {
     var target;
@@ -51,6 +51,6 @@ module.exports = (function () {
   return {
     init: init,
     create: create
-  }
+  };
 
 })();

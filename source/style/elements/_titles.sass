@@ -121,7 +121,7 @@
         position: relative
         color: #fff
         text-decoration: none
-        box-shadow: 0 1px 2px 1px rgba(#000,.3)
+        box-shadow: 0 1px 2px 1px rgba(#000, .3)
         +breakpoint(900px)
             padding: 12px 20px 12px 50px
     &_link
@@ -176,6 +176,9 @@
         height: 23px
         width: 26px
 
+//============error
+.error
+    box-shadow: 0 0 0 3px #e44845
 //form
 .form
     &__input-elems
@@ -228,7 +231,6 @@
         margin-top: -8px
         margin-left: -8px
 
-
     //input-text
     &__input-text
         //display: inline-block
@@ -259,7 +261,7 @@
         display: inline-block
         height: 20px
         vertical-align: middle
-        color: rgba(255,255,255,0.8)
+        color: rgba(255, 255, 255, 0.8)
         &::before
             margin-right: 10px
             cursor: pointer
@@ -272,7 +274,7 @@
             border-radius: 2px
             background-repeat: no-repeat
             background-position: center
-            box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.2)
+            box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2)
         //green mod
         &_green
             &::before
@@ -286,14 +288,14 @@
     //radio
     &__input-radio
         display: none
-        //TODO: center bullets on small resolution
+    //TODO: center bullets on small resolution
     &__label-radio
         text-align: left
         position: relative
         display: inline-block
         height: 20px
         vertical-align: middle
-        color: rgba(255,255,255,0.8)
+        color: rgba(255, 255, 255, 0.8)
         &::before
             cursor: pointer
             content: ''
@@ -304,7 +306,7 @@
             margin-right: 10px
             border-radius: 50%
             background-color: #fff
-            box-shadow: inset 0 0 3px 1px rgba(0,0,0,0.4)
+            box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.4)
         &::after
             position: absolute
             content: ''
@@ -315,7 +317,7 @@
             top: 7px
             left: 6px
             background-color: #000
-            box-shadow: 0 0 2px 1px rgba(0,0,0,0.3)
+            box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3)
         //green mod
         &_green
             &::after
@@ -365,8 +367,6 @@
         height: 28px
         top: -28px
 
-
-
 .tooltip
     padding: 3px
     color: #fff
@@ -394,7 +394,7 @@
     &.arrow-top
         bottom: 0
         right: 0
-        transform: translate(-50%,135%)
+        transform: translate(-50%, 135%)
         &::after
             bottom: 100%
             left: 50%

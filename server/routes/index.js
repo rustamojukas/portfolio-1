@@ -8,6 +8,6 @@ module.exports = function(app){
   app.use('/feedback',require('./feedback'));
   app.use('/admin',checkAuth,require('./admin'));
   app.use('/skill',checkAuth,require('./skill'));
-  app.post('/article/post',checkAuth,require('./article-save').post);
+  app.use('/article',checkAuth,require('./article'));
   app.use('/test',require('./test'));
 };

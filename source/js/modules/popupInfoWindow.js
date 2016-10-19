@@ -1,3 +1,5 @@
 module.exports=function(){
-  return $('.popup').addClass('active').find('.popup__content');
+  var $popup = $('.popup');
+  $popup.fadeIn();
+  return $popup.find('.popup__content');
 };

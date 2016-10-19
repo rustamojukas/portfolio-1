@@ -1,6 +1,6 @@
 module.exports = function () {
-  var $form = $('#login-form');
-
+  var $form = $('#feedback-form');
+  var popupWindow = require('../popupInfoWindow');
   if ($form.length) {
     addListeners();
   }
@@ -8,9 +8,8 @@ module.exports = function () {
   function addListeners() {
     $form.on('submit', function (e) {
       e.preventDefault();
-      var $this = $(this);
-      var url = $this.attr('action');
-      ajaxRequest($this, url);
+      var url = '/feedback';
+      ajaxRequest($(this), url);
     });
   }
 
@@ -31,13 +30,14 @@ module.exports = function () {
 
   function checkResponse(jqXHR) {
     jqXHR.done(function (data, text, jqXHR) {
-      if (jqXHR.status === 200 && data === 'wellcome') {
-        window.location.href = '/admin';
+      if (jqXHR.status === 200) {
+        popupWindow().html(jqXHR.responseText).css('color','#5dff00');
       }
+      $form.trigger('reset');
     });
     jqXHR.fail(function (jqXHR) {
       console.log('fail');
-      require('./popupInfoWindow')().html('<div class="form__error">Ошибка авторизации</div>' + jqXHR.responseText);
+      popupWindow().html('<div class="form__error">Серверная ошибка</div>' + jqXHR.responseText).css('color','#ff0000');
       console.log(jqXHR.status, jqXHR.statusText, jqXHR.responseText);
 
     });
@@ -46,14 +46,14 @@ module.exports = function () {
 
   function validate(form) {
     var valid = true;
-    var formTooltip = require('./formTooltip');
-    var formError = require('./formError');
+    var formTooltip = require('./form-tooltip');
+    var formError = require('./form-error');
     formTooltip.init(form);
     formError.init(form);
-    var $name = form.find('#login');
-    var $password = form.find('#password');
-    var $isHuman = form.find('#isHuman');
-    var $yes = form.find('#yes');
+    var $name = form.find('#name');
+    var $email=form.find('#email');
+    var $message = form.find('#message');
+
     if (!$name.val()) {
       formTooltip.create({
         elem: $name
@@ -61,28 +61,21 @@ module.exports = function () {
       formError.create($name);
       valid = false;
     }
-    if (!$password.val()) {
+    if (!$email.val()) {
       formTooltip.create({
-        elem: $password
+        elem: $email
       });
-      formError.create($password);
+      formError.create($email);
       valid = false;
     }
-    if (!$isHuman.prop('checked')) {
+    if (!$message.val()) {
       formTooltip.create({
-        elem: $isHuman
+        elem: $message
       });
-      formError.create($isHuman);
+      formError.create($message);
       valid = false;
     }
-    if (!$yes.prop('checked')) {
-      formTooltip.create({
-        elem: $yes,
-        position: 'bottom'
-      });
-      formError.create($yes);
-      valid = false;
-    }
+
     return valid;
   }
 };

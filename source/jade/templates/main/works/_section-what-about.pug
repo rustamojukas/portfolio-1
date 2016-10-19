@@ -46,11 +46,11 @@ section.whatabout
                 form.form.feedback-form(name='feddback-form' id='feedback-form' action='/feedback' method='POST')
                     .form__input-elems.feedback-form__elems
                         .form__cont-input.feedback-form__cont-input
-                            input(type='text' id='feedback-name'  class='form__input-text feedback-form__input-text' name='name' placeholder='Имя' data-content='Вы не ввели имя')
+                            input(type='text' id='name'  class='form__input-text feedback-form__input-text' name='name' placeholder='Имя' data-content='Вы не ввели имя')
                         .form__cont-input.feedback-form__cont-input
-                            input(type='text' id='feedback-password' class='form__input-text feedback-form__input-text' name='email' placeholder='Email' data-content='Вы не ввели Email')
+                            input(type='text' id='email' class='form__input-text feedback-form__input-text' name='email' placeholder='Email' data-content='Вы не ввели Email')
                         .form__cont-input.form__cont-input_textarea.feedback-form__cont-input
-                            textarea(id='feedback-message' class='form__input-textarea' name='message' placeholder='Ваше сообщение' data-content='Вы не ввели сообщение')
+                            textarea(id='message' class='form__input-textarea' name='message' placeholder='Ваше сообщение' data-content='Вы не ввели сообщение')
                     .feedback-form__btn-elems
                         button(type='submit' class='btn btn_green btn_border-right feedback-form__btn') Отправить
                         button(type='reset' class='btn btn_green btn_border-right feedback-form__btn') Очистить
@@ -58,4 +58,3 @@ section.whatabout
                 a.anchor__link(href='#header') Наверх
                     svg.anchor__link-icon
                         use(xlink:href='img/svg-sprites/sprite.svg#arrow_down')
-            include ../../elements/_popup-message

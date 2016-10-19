@@ -21,8 +21,12 @@ $(function () {
   require('./modules/blog-sidebar-hide')();
   //form-validation
   // require('./modules/form-submit')();
-  //Login Validation
-  require('./modules/formLoginSubmit')();
+  //form validation
+  require('./modules/form/submit-login-form')();
+  require('./modules/form/submit-feedback-form')();
+  require('./modules/form/submit-skill-form')();
+  require('./modules/form/submit-article-form')();
+  require('./modules/form/submit-works-form')();
   //admin-tabs
   require('./modules/admin-tabs')();
 });

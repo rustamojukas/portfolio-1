@@ -14,9 +14,6 @@
                     li.tabs__list-item
                         a.tabs__link(href='#' + tab.link)= tab.title
     .tabs__content(id=tabs[0].link)
-        //h2= user
-        //each item in skills
-            h4=item
         .container
             h2.tabs__title Страница "Обо мне"
             form.admin-form(id='skill-form' method='POST',action='/skill/update')
@@ -35,25 +32,25 @@
         .container
             h2.tabs__title Страница "Блог"
             .tabs__subtitle Добавить запись
-            form.admin-form(id='article-form' method='POST',action='/article/post')
+            form.admin-form(id='article-form' method='POST',action='/article')
                 .admin-form__input-container
-                    input.admin-form__input(type='text' name='title' placeholder='Название')
+                    input.admin-form__input(id='article-title' type='text' name='title' placeholder='Название')
                 .admin-form__input-container
-                    input.admin-form__input(type='text' name='date' placeholder='Дата')
+                    input.admin-form__input(id='article-date' type='text' name='date' placeholder='Дата')
                 .admin-form__textarea-container
-                    textarea.admin-form__textarea(name='text' placeholder='Содержание')
+                    textarea.admin-form__textarea(id='article-text' name='text' placeholder='Содержание')
                 button.admin-form__button-submit(type='submit') Добавить
     .tabs__content(id=tabs[2].link)
         .container
             h2.tabs__title Страница "Мои работы"
             .tabs__subtitle Добавить работу
-            form.admin-form(id='works-form' method='POST',action='/works/post')
+            form.admin-form(id='works-form' method='POST',action='/works' enctype="multipart/form-data")
                 .admin-form__input-container
-                    input.admin-form__input(type='text' name='title' placeholder='Название проекта')
+                    input.admin-form__input(id='works-title' type='text' name='title' placeholder='Название проекта')
                 .admin-form__input-container
-                    input.admin-form__input(type='text' name='tech' placeholder='Технологии')
+                    input.admin-form__input(id='works-tech' type='text' name='tech' placeholder='Технологии')
                 .admin-form__input-container
-                    input.admin-form__input(type='file' name='pic' value='asd' accept='image/*')
+                    input.admin-form__input(id='works-pic' type='file' name='picture' accept='image/*')
                 button.admin-form__button-submit(type='submit') Добавить
     .tabs__content(id=tabs[3].link)
         .container
